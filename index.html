@@ -9,20 +9,22 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Pig Latin</h1>
+      <img id="left-pig" src="img/fatpig.png">
+      <img id="right-pig" src="img/fatpig.png">
+      <div class="heading">
+        <p>Pig Latin</p>
       </div>
       <form id="form">
         <div class="form-group">
-          <label for="word">Enter a word:</label>
-          <input type="text" id="word">
+          <label for="word">Enter a sentence:</label>
+          <input type="text" id="input" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </form>
-
       <div class="result">
         <span id="result"></span>
       </div>
+      <img src="img/pig.png" id="smart-pig">
     </div>
   </body>
 </html>

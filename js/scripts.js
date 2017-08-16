@@ -1,3 +1,5 @@
+// bussiness logic
+
 function isVowel(char) {
   return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
 }
@@ -34,14 +36,20 @@ function changeWord(word){
 }
 
 var pigLatin = function(userInput) {
-  var number = parseInt(userInput[0]);
-  if (number === number) {
-    return userInput;
+  if (!userInput) {
+    alert("Are you kidding me?");
+    alert("Enter a sentence imbecile.");
   } else {
-    return eachWord(userInput);
+    var number = parseInt(userInput[0]);
+    if (number === number) {
+      return userInput;
+    } else {
+      return eachWord(userInput);
+      }
     }
 }
 
+// user interface
 
 $(document).ready(function(){
   $("#form").submit(function(event){
@@ -49,5 +57,7 @@ $(document).ready(function(){
     var userInput = $("input#input").val();
     var result = pigLatin(userInput);
     $("#result").text(result);
+    $(".result").show();
+
   });
 });
