@@ -3,7 +3,9 @@ var pigLatin = function(userWord) {
   if (number === number) {
     return userWord;
   } else {
-
+    if (userWord[0] === "a" || userWord[0] === "e" || userWord[0] === "i" || userWord[0] === "o" || userWord[0] === "u") {
+      return userWord + "way";
+    } 
   }
 }
 
