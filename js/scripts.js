@@ -1,5 +1,5 @@
 var pigLatin = function(userWord) {
-  var number = parseInt(userWord);
+  var number = parseInt(userWord[0]);
   if (number === number) {
     return userWord;
   } else {
