@@ -3,6 +3,13 @@ function isVowel(char)
     return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
 }
 
+function moveConsonant(userWord){
+    var wordArray = userWord.split("");
+    var letter = wordArray.shift();
+    wordArray.push(letter);
+    var newString = wordArray.join("");
+    return newString;
+}
 
 var pigLatin = function(userWord) {
   var number = parseInt(userWord[0]);
@@ -11,7 +18,8 @@ var pigLatin = function(userWord) {
   } else {
     if (isVowel(userWord[0])) {
       return userWord + "way";
-
+    } else {
+      return moveConsonant(userWord);
     }
   }
 }
