@@ -38,12 +38,8 @@ var pigLatin = function(userInput) {
   if (number === number) {
     return userInput;
   } else {
-    if (isVowel(userInput[0])) {
-      return userInput + "way";
-    } else {
-      return eachWord(userInput);
+    return eachWord(userInput);
     }
-  }
 }
 
 
