@@ -2,30 +2,46 @@ function isVowel(char) {
   return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
 }
 
-function moveConsonant(userWord){
-  var wordArray = userWord.split("");
-   while (!isVowel(wordArray[0])) {
-     if (wordArray[0] === "q" && wordArray[1] == "u") {
-       var letter = wordArray.splice(0,1);
-       wordArray.push(letter);
-
-     }
-     var letter = wordArray.shift();
-     wordArray.push(letter);
-  }
-  var newString = wordArray.join("");
-  return newString;
+function eachWord(userInput) {
+  var sentenceArray = userInput.split(" ");
+  var newArray = [];
+  sentenceArray.forEach(function(word){
+    var newWord = changeWord(word);
+    newArray.push(newWord);
+  });
+  var finalSentence = newArray.join(" ");
+  return finalSentence;
 }
 
-var pigLatin = function(userWord) {
-  var number = parseInt(userWord[0]);
-  if (number === number) {
-    return userWord;
+function changeWord(word){
+  var wordArray = word.split("");
+  if (isVowel(wordArray[0])) {
+    wordArray.push("way");
+    var newString = wordArray.join("");
+    return newString;
   } else {
-    if (isVowel(userWord[0])) {
-      return userWord + "way";
+    while (!isVowel(wordArray[0])) {
+      if (wordArray[0] === "q" && wordArray[1] == "u") {
+        var letter = wordArray.splice(0,1);
+        wordArray.push(letter);
+      }
+      var letter = wordArray.shift();
+      wordArray.push(letter);
+   }
+  }
+  var newString = wordArray.join("");
+  return newString + "ay";
+}
+
+var pigLatin = function(userInput) {
+  var number = parseInt(userInput[0]);
+  if (number === number) {
+    return userInput;
+  } else {
+    if (isVowel(userInput[0])) {
+      return userInput + "way";
     } else {
-      return moveConsonant(userWord) + "ay";
+      return eachWord(userInput);
     }
   }
 }
@@ -34,8 +50,8 @@ var pigLatin = function(userWord) {
 $(document).ready(function(){
   $("#form").submit(function(event){
     event.preventDefault();
-    var userWord = $("input#word").val();
-    var result = pigLatin(userWord);
+    var userInput = $("input#input").val();
+    var result = pigLatin(userInput);
     $("#result").text(result);
   });
 });
