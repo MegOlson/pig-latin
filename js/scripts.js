@@ -4,11 +4,15 @@ function isVowel(char)
 }
 
 function moveConsonant(userWord){
-    var wordArray = userWord.split("");
-    var letter = wordArray.shift();
-    wordArray.push(letter);
-    var newString = wordArray.join("");
-    return newString;
+  var wordArray = userWord.split("");
+  debugger;
+  while (!isVowel(wordArray[0])) {
+      var letter = wordArray.shift();
+      wordArray.push(letter);
+  }
+  var newString = wordArray.join("");
+  return newString;
+
 }
 
 var pigLatin = function(userWord) {
