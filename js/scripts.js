@@ -19,7 +19,7 @@ var pigLatin = function(userWord) {
     if (isVowel(userWord[0])) {
       return userWord + "way";
     } else {
-      return moveConsonant(userWord);
+      return moveConsonant(userWord) + "ay";
     }
   }
 }
