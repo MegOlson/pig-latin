@@ -1,11 +1,18 @@
+function isVowel(char)
+{
+    return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
+}
+
+
 var pigLatin = function(userWord) {
   var number = parseInt(userWord[0]);
   if (number === number) {
     return userWord;
   } else {
-    if (userWord[0] === "a" || userWord[0] === "e" || userWord[0] === "i" || userWord[0] === "o" || userWord[0] === "u") {
+    if (isVowel(userWord[0])) {
       return userWord + "way";
-    } 
+
+    }
   }
 }
 
