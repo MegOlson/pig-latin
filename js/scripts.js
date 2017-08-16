@@ -1,18 +1,20 @@
-function isVowel(char)
-{
-    return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
+function isVowel(char) {
+  return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || char === 'A' || char === 'E' || char === 'I' || char === 'O' || char === 'U' || false;
 }
 
 function moveConsonant(userWord){
   var wordArray = userWord.split("");
-  debugger;
-  while (!isVowel(wordArray[0])) {
-      var letter = wordArray.shift();
-      wordArray.push(letter);
+   while (!isVowel(wordArray[0])) {
+     if (wordArray[0] === "q" && wordArray[1] == "u") {
+       var letter = wordArray.splice(0,1);
+       wordArray.push(letter);
+
+     }
+     var letter = wordArray.shift();
+     wordArray.push(letter);
   }
   var newString = wordArray.join("");
   return newString;
-
 }
 
 var pigLatin = function(userWord) {
